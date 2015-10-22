@@ -36,6 +36,7 @@ public class AppleTVIconsBuildPostProcess
 		const string smallImageStack = "/App Icon - Small.imagestack";
 		const string largeImageStack = "/App Icon - Large.imagestack";
 		const string topShelfImageStack = "/Top Shelf Image.imageset";
+		const string gamecenterDashboardPath = "/Dashboard Image.gcdashboardimage/Logo.imageset";
 
 		// Load up icons assets
 		AppleTVIcons icons = AssetDatabase.LoadAssetAtPath<AppleTVIcons>("Assets/AppleTV/AppleTVIcons.asset");
@@ -47,6 +48,13 @@ public class AppleTVIconsBuildPostProcess
 		// Top shelf image
 		Directory.CreateDirectory (pathToBuiltProject + brandAssetsPath + topShelfImageStack);
 		CopyImage (icons._TopShelfIcon, pathToBuiltProject + brandAssetsPath + topShelfImageStack);
+
+		if (icons._GameCenterDashboard) 
+		{
+			// Dashboard
+			Directory.CreateDirectory (pathToBuiltProject + assetCatalogPath + gamecenterDashboardPath);
+			CopyImage (icons._GameCenterDashboard, pathToBuiltProject + assetCatalogPath + gamecenterDashboardPath);
+		}
 
 		// Copy pre made json
 		string pathToJson = Path.GetDirectoryName (AssetDatabase.GetAssetPath (icons));

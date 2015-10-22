@@ -8,6 +8,7 @@ public class AppleTVIcons : ScriptableObject
 
 	public Texture2D _TopShelfIcon;
 
+	public Texture2D _GameCenterDashboard;
 	public LeaderboardIcon[] _LeaderboardIcons;
 
 	[System.Serializable]
